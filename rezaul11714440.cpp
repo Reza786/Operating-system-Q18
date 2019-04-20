@@ -1,6 +1,7 @@
 //Name : Rezaul Islam , Reg no: 11714440, Roll No :18, Question no: 18;
-#include<iostream> 
-using namespace std; 
+#include<iostream>
+#include<stdio.h> 
+#include<conio.h>
 void findWaitingTime(int processes[], int n, 
              int bt[], int wt[], int quantum) 
 { 
@@ -50,48 +51,51 @@ void findavgTime(int processes[], int n, int bt[],
     int wt[n], tat[n], total_wt = 0, total_tat = 0; 
     findWaitingTime(processes, n, bt, wt, quantum);
     findTurnAroundTime(processes, n, bt, wt, tat); 
-    cout << "Processes "<< " Burst time "
-         << " Waiting time " << " Turn around time\n"; 
+    printf( "Processes   Burst time  Waiting time   Turn around time\n"); 
     for (int i=0; i<n; i++) 
     { 
         total_wt = total_wt + wt[i]; 
         total_tat = total_tat + tat[i]; 
-        cout << " " << i+1 << "\t\t" << bt[i] <<"\t "
-             << wt[i] <<"\t\t " << tat[i] <<endl; 
+        printf( " ");printf("%d", i+1 );printf("\t\t"); printf("%d",bt[i]); printf("\t ");
+        printf("%d",wt[i]);
+        printf("\t\t");
+        printf("%d",tat[i]);
+        printf("\n");
+        
     } 
-    cout << "Total waiting time = "
-         << (float)total_wt ; 
-    cout << "\nTotal turn around time = "
-         << (float)total_tat ; 
-    cout << "\nAverage waiting time = "
-         << (float)total_wt / (float)n; 
-    cout << "\nAverage turn around time = "
-         << (float)total_tat / (float)n; 
+    printf("Total waiting time = ");
+    printf("%d",total_wt); 
+    printf("\nTotal turn around time = ");
+    printf("%d",total_tat); ; 
+    printf( "\nAverage waiting time = ");
+    printf("%f", total_wt /n); 
+    printf("\nAverage turn around time = ");
+    printf("%f",total_tat /n); 
 } 
 int main() 
 {    
      int a,i;
-    cout<<"Enter how many process:";
-    cin>>a;
+    printf("Enter how many process:");
+    scanf("%d",a);
      int processes[a];
      int burst_time[a];
    
-    cout<<"Enter : \n";
+    printf("Enter : \n");
     for(i=0;i<a;i++)
     {
-    	cin>>processes[i];
+    	scanf("%d",processes[i]);
 	}
     
     int n = sizeof processes / sizeof processes[0]; 
-    cout<<"Enter brust time :\n";
+    printf("Enter brust time :\n");
     for(i=0;i<a;i++)
     {
-    	cin>>burst_time[i];
+    	scanf("%d",burst_time[i]);
 	}
    
     int quantum;
-    cout<<"Enter time quantum:\n";
-    cin>>quantum;
+    printf("Enter time quantum:\n");
+    scanf("%d",quantum);
     findavgTime(processes, n, burst_time, quantum); 
     return 0; 
 } 
